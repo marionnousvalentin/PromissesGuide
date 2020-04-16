@@ -7,10 +7,8 @@ async function timeoutPromise(message, timeout, error) {
 }
 
 async function main() {
-  const promise1 = () => timeoutPromise("promesse 1", 100, false);
-  const promise2 = () => timeoutPromise("promesse 2", 500, false);
-  await promise2();
-  await promise1();
+  await timeoutPromise("2", 500, false);
+  await timeoutPromise("1", 100, false);
 }
 
 main();
