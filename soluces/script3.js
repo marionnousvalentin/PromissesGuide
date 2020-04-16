@@ -4,10 +4,13 @@ async function main2() {
   const promise1 = () => timeoutPromise("promesse 1", 500, false);
   const promise2 = () => timeoutPromise("promesse 2", 100, false);
   const promise3 = () => timeoutPromise("promesse 3", 400, false);
-  const array = [promise1, promise2, promise3];
 
-  await Promise.all(array.map(promise => promise()));
-  console.log("Finished");
+  await promise1()
+    .then(() => {
+      return Promise.all([(promise2(), promise3())]);
+    })
+    .then(() => console.log("Finished"));
 }
 // main();
+
 main2();

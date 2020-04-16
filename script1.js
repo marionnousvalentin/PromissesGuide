@@ -1,14 +1,14 @@
-const { timeoutPromise } = require("./promess");
+async function timeoutPromise(message, timeout, error) {
+  return await setTimeout(() => {
+    console.log(message);
+    if (error) throw new Error("error");
+    return message;
+  }, timeout);
+}
 
 async function main() {
-  const promise1 = () => timeoutPromise("1", 500, false);
-  const promise2 = () => timeoutPromise("2", 100, false);
-
-  await promise1()
-    .then(() => {
-      promise2();
-    })
-    .then(() => console.log("end"));
+  await timeoutPromise("2", 500, false);
+  await timeoutPromise("1", 100, false);
 }
 
 main();
