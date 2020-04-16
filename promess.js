@@ -1,9 +1,9 @@
 function timeoutPromise(message, timeout, error) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+      if (error) return reject(error);
       console.log(message);
-      if (error) reject(error);
-      resolve(message);
+      return resolve(message);
     }, timeout);
   });
 }
