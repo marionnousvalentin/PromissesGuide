@@ -3,7 +3,7 @@ function timeoutPromise(message, timeout, error) {
     setTimeout(() => {
       console.log(message);
       if (error) reject(error);
-      resolve("success");
+      resolve(message);
     }, timeout);
   });
 }
