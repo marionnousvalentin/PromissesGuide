@@ -10,7 +10,7 @@ async function main2() {
       try {
         return promise();
       } catch (error) {
-        console.log("il y a une erreur");
+        console.log("log error");
       }
     })
   );
